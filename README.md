@@ -16,7 +16,7 @@ extracted.
 
 ### Windows 10 (x64)
 
-|               | Inputs   | Force Feedback |
-|---------------|----------|----------------|
-| GT Legends    | yes      | yes            |
-| Project: CARS | yes      | yes            |
+|                            | Inputs    | Force Feedback   | Notes                     |
+|----------------------------|-----------|------------------|---------------------------|
+| GT Legends                 | yes       | yes              |                           |
+| Project: CARS              | yes       | yes              |                           |
