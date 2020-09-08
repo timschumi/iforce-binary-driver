@@ -77,8 +77,8 @@ HKCR, CLSID\%GUID_CPL%\InProcHandler32,              , ,"%11%\gchand.dll"
 HKCR, CLSID\%GUID_CPL%\InProcServer32,               , ,"%11%\SaiCFF04.dll"
 HKCR, CLSID\%GUID_CPL%\InProcServer32, ThreadingModel, ,"Apartment"
 ; setup programming info
-HKLM,%ALIASTABLE%, 06A3FF04, , %GUID_ALIAS%
-HKLM,%ALIASTABLE32%, 06A3FF04, , %GUID_ALIAS%
+HKLM,%ALIASTABLE%, 046DC291, , %GUID_ALIAS%
+HKLM,%ALIASTABLE32%, 046DC291, , %GUID_ALIAS%
 HKR, , Alias,    , %GUID_ALIAS%
 HKR, , Balias,   , %GUID_BALIAS%
 ; setup driver interfaces
