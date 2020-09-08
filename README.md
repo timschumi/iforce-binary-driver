@@ -19,4 +19,4 @@ extracted.
 |                            | Inputs    | Force Feedback   | Notes                     |
 |----------------------------|-----------|------------------|---------------------------|
 | GT Legends                 | yes       | yes              |                           |
-| Project: CARS              | yes       | yes              |                           |
+| Project: CARS              | yes       | yes              | Logitech MOMO Force Profile |
