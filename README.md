@@ -18,6 +18,6 @@ extracted.
 
 |                            | Inputs    | Force Feedback   | Notes                     |
 |----------------------------|-----------|------------------|---------------------------|
-| GT Legends                 | yes       | yes              |                           |
+| GT Legends (Steam)         | yes       | yes              | Logitech MOMO Force Profile |
 | Project: CARS              | yes       | yes              | Logitech MOMO Force Profile |
 | Euro Truck Simulator       | yes       | center-force only|                           |
