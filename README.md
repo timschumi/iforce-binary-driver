@@ -20,3 +20,4 @@ extracted.
 |----------------------------|-----------|------------------|---------------------------|
 | GT Legends                 | yes       | yes              |                           |
 | Project: CARS              | yes       | yes              | Logitech MOMO Force Profile |
+| Euro Truck Simulator       | yes       | center-force only|                           |
