@@ -6,7 +6,7 @@ binary released by Saitek.
 ## Supported devices
 
 * AVB Force Feedback Racing Wheel
-* Logitech WingMan Formula Force
+* Logitech WingMan Formula Force (`ljoy.inf`)
 
 ## Installation
 
