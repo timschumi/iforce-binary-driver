@@ -1,0 +1,58 @@
+;    WmVirHid.INF
+;
+;Abstract:
+;    INF file for installing Logitech Virtual Hid device drivers
+;
+; Copyright 2001-2004 Logitech Inc.
+
+[Version]
+Signature="$CHICAGO$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%Vendor%
+DriverVer=04/12/2005, 4.60.345.0
+CatalogFile=WmVirHid.cat
+
+[SourceDisksNames]
+55=%DiskDesc%,"LGS_4_50"
+
+[SourceDisksFiles]
+WmVirHid.sys=55
+
+[DestinationDirs]
+DefaultDestDir = 10,system32\drivers
+WmVirHid_Device.CopyFilesSYS  = 10,system32\drivers
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%StdMfg%=Standard
+
+[Standard]
+%WmVirHidDevice.DeviceDesc%=WmVirHid_Device, LogiDevice\WmVirtualDevice
+
+[WmVirHid_Device]
+CopyFiles=WmVirHid_Device.CopyFilesSYS
+
+[WmVirHid_Device.CopyFilesSYS]
+WmVirHid.sys
+
+[WmVirHid_Device.Services]
+AddService = WmVirHid, 0x00000002, Logi_Virtual_Device_Service_Inst
+
+[Logi_Virtual_Device_Service_Inst]
+DisplayName    = %WmVirHid.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\WmVirHid.sys
+LoadOrderGroup = Extended Base
+
+[Strings]
+Vendor = "Logitech Inc"
+DiskDesc="Logitech Gaming Software"
+StdMfg = "(Standard system devices)"
+
+WmVirHidDevice.DeviceDesc = "Logitech Virtual Hid Device"
+WmVirHid.SVCDESC = "Logitech Virtual Hid Device Driver"

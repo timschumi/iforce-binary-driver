@@ -1,0 +1,1374 @@
+;; WmJoyHid.inf
+;; Logitech Gaming Devices INF file
+;;
+;; Copyright 2001-2004 Logitech Inc.
+
+[Version]
+Signature="$CHICAGO$"
+Class=HIDClass
+ClassGuid={745a17a0-74d3-11d0-b6fe-00a0c90f57da}
+Provider=%VENDOR%
+DriverVer=04/12/2005, 4.60.345.0
+CatalogFile=WmJoyhid.cat
+
+[SourceDisksNames]
+55=%DiskDesc%,"LGS_4_60",,
+
+[SourceDisksFiles]
+WmHidLo.sys=55
+WmFilter.sys=55
+WmJoyFrc.dll=55
+WmBEnum.sys=55
+WmXlCore.sys=55
+WmVirHid.sys=55
+
+[DestinationDirs]
+WmJoy.CopyUsbHidFilter = 10,system32\drivers
+WmJoy.CopyWmFilterSYS  = 10,system32\drivers
+WmJoyFrc.Copy.DLL = 11    ;%SystemRoot%\system32
+DefaultDestDir         = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+
+[Manufacturer]
+%VENDOR%=Standard
+
+[Standard]
+; USB\...
+%USB\VID_046D&PID_C202.DeviceName%  = WmJoy.Rally2,     USB\VID_046D&PID_C202
+%USB\VID_046D&PID_C207.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C207,USB\VID_046D&PID_C212
+%USB\VID_046D&PID_C208.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C208
+%USB\VID_046D&PID_C209.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C209
+%USB\VID_046D&PID_C20B.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C20B
+%USB\VID_046D&PID_C20C.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C20C
+%USB\VID_046D&PID_C20D.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C20D
+%USB\VID_046D&PID_C20E.DeviceName%  = WmJoy.FormulaGP,  USB\VID_046D&PID_C20E
+%USB\VID_046D&PID_C213.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C213
+%USB\VID_046D&PID_C214.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C214
+%USB\VID_046D&PID_C215.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C215
+%USB\VID_046D&PID_C216.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C216
+%USB\VID_046D&PID_C21A.DeviceName%  = WmJoy.HidDevice,  USB\VID_046D&PID_C21A
+; USB\... with FF
+%USB\VID_046D&PID_C20A.DeviceName%  = WMRPInst,        USB\VID_046D&PID_C20A
+%USB\VID_046D&PID_C211.DeviceName%  = WMWPInst,        USB\VID_046D&PID_C211
+%USB\VID_046D&PID_C218.DeviceName%  = WMRP2Inst,       USB\VID_046D&PID_C218
+%USB\VID_046D&PID_C219.DeviceName%  = WMWP2Inst,       USB\VID_046D&PID_C219
+%USB\VID_046D&PID_C283.DeviceName%  = WMF3DInst,       USB\VID_046D&PID_C283
+%USB\VID_046D&PID_C285.DeviceName%  = WMSF3DInst,      USB\VID_046D&PID_C285
+%USB\VID_046D&PID_C286.DeviceName%  = DOMInst,         USB\VID_046D&PID_C286
+%USB\VID_046D&PID_C293.DeviceName%  = WMFFLInst,       USB\VID_046D&PID_C293
+%USB\VID_046D&PID_C294&REV_2000.DeviceName%  = DFEInst, USB\VID_046D&PID_C294&REV_2000
+%USB\VID_046D&PID_C294&REV_2100.DeviceName%  = FFRInst, USB\VID_046D&PID_C294&REV_2100
+%USB\VID_046D&PID_C294&REV_2200.DeviceName%  = DFRInst, USB\VID_046D&PID_C294&REV_2200
+%USB\VID_046D&PID_C294.DeviceName%  = DFInst,          USB\VID_046D&PID_C294
+%USB\VID_046D&PID_C295.DeviceName%  = WMFMPInst,       USB\VID_046D&PID_C295
+%USB\VID_046D&PID_C298.DeviceName%  = DFPInst,         USB\VID_046D&PID_C298
+%USB\VID_046D&PID_CA03.DeviceName%  = BCInst,          USB\VID_046D&PID_CA03
+%USB\VID_046D&PID_CA04.DeviceName%  = WMRWInst,        USB\VID_046D&PID_CA04
+; HID\...
+%HID\VID_046D&PID_C202.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C202
+%HID\VID_046D&PID_C207.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C207,HID\VID_046D&PID_C212
+%HID\VID_046D&PID_C208.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C208
+%HID\VID_046D&PID_C209.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C209
+%HID\VID_046D&PID_C20B.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C20B
+%HID\VID_046D&PID_C20C.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C20C
+%HID\VID_046D&PID_C20D.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C20D
+%HID\VID_046D&PID_C20E.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C20E
+%HID\VID_046D&PID_C213.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C213
+%HID\VID_046D&PID_C214.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C214
+%HID\VID_046D&PID_C215.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C215
+%HID\VID_046D&PID_C216.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C216
+%HID\VID_046D&PID_C21A.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C21A
+; HID\... with FF
+%HID\VID_046D&PID_C20A.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C20A
+%HID\VID_046D&PID_C211.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C211
+%HID\VID_046D&PID_C218.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C218
+%HID\VID_046D&PID_C219.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C219
+%HID\VID_046D&PID_C283.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C283
+%HID\VID_046D&PID_C285.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C285
+%HID\VID_046D&PID_C286.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C286
+%HID\VID_046D&PID_C293.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C293
+%HID\VID_046D&PID_C294&REV_2000.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C294&REV_2000
+%HID\VID_046D&PID_C294&REV_2100.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C294&REV_2100
+%HID\VID_046D&PID_C294&REV_2200.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C294&REV_2200
+%HID\VID_046D&PID_C294.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C294
+%HID\VID_046D&PID_C295.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C295
+%HID\VID_046D&PID_C298.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_C298
+%HID\VID_046D&PID_CA03.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_CA03
+%HID\VID_046D&PID_CA04.DeviceName%  = WmJoy.HidFilter,   HID\VID_046D&PID_CA04
+
+[WmJoy.HidFilter]
+CopyFiles = WmJoy.CopyWmFilterSYS
+
+[WmJoy.Rally2]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles = WmJoy.CopyUsbHidFilter
+AddReg    = WmJoy.Rally2.AddReg
+
+[WmJoy.Rally2.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[WmJoy.FormulaGP]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles = WmJoy.CopyUsbHidFilter
+AddReg    = WmJoy.FormulaGP.AddReg
+
+[WmJoy.FormulaGP.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[WmJoy.HidDevice]
+Include=Input.inf
+Needs=HID_Inst.NT
+AddReg=WmJoy.HidDevice.AddReg
+
+[WMRPInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+DelReg=WMRPInst.DelReg
+CopyFiles=WmJoyFrc.Copy.DLL
+AddReg=WMRPInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMRP2Inst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoyFrc.Copy.DLL
+CopyFiles=WmJoyFrc.Copy.DLL
+AddReg=WMRP2Inst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMRWInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoyFrc.Copy.DLL,WmJoy.CopyUsbHidFilter
+AddReg=WMRWInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMRWInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[WMWPInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoyFrc.Copy.DLL
+AddReg=WMWPInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMWP2Inst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoyFrc.Copy.DLL
+AddReg=WMWP2Inst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMF3DInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+DelReg=WMF3DInst.DelReg
+CopyFiles=WmJoyFrc.Copy.DLL
+AddReg=WMF3DInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMSF3DInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+DelReg=WMSF3DInst.DelReg
+CopyFiles=WmJoyFrc.Copy.DLL,WmJoy.CopyUsbHidFilter
+AddReg=WMSF3DInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMSF3DInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[DOMInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoyFrc.Copy.DLL
+AddReg=DOMInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMFFLInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+DelReg=WMFFLInst.DelReg
+CopyFiles=WmJoy.CopyUsbHidFilter, WmJoyFrc.Copy.DLL
+AddReg=WMFFLInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMFFLInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[DFEInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoy.CopyUsbHidFilter, WmJoyFrc.Copy.DLL
+AddReg=DFCommon.AddReg, DFE.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[DFEInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[FFRInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoy.CopyUsbHidFilter, WmJoyFrc.Copy.DLL
+AddReg=DFCommon.AddReg, FFR.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[FFRInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[DFRInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoy.CopyUsbHidFilter, WmJoyFrc.Copy.DLL
+AddReg=DFCommon.AddReg, DFR.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[DFRInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[DFInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoy.CopyUsbHidFilter, WmJoyFrc.Copy.DLL
+AddReg=DFCommon.AddReg, DF.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[DFInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[DFPInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoy.CopyUsbHidFilter, WmJoyFrc.Copy.DLL
+AddReg=DFPInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[DFPInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[BCInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoy.CopyUsbHidFilter, WmJoyFrc.Copy.DLL
+AddReg=BCInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[BCInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[WMFMPInst]
+Include=Input.inf
+Needs=HID_Inst.NT
+CopyFiles=WmJoy.CopyUsbHidFilter,WmJoyFrc.Copy.DLL
+AddReg=WMFMPInst.AddReg, WmJoy.WmJoyFrcDLL.AddReg
+
+[WMFMPInst.HW]
+AddReg=WmUsbFilter.HW.AddReg
+
+[WmUsbFilter.HW.AddReg]
+HKR,,"LowerFilters",0x00010000,"WmHidLo"
+
+
+[WmJoy.HidFilter.Services]
+AddService = WmFilter,%SPSVCINST_ASSOCSERVICE%,WmFilter_Service_Inst
+
+[WmJoy.Rally2.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[WmJoy.FormulaGP.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[WmJoy.HidDevice.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+
+[WMRPInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+
+[WMRP2Inst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+
+[WMRWInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[WMWPInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+
+[WMWP2Inst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+
+[WMF3DInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+
+[WMSF3DInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[DOMInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+
+[WMFFLInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[DFEInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[FFRInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[DFRInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[DFInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[DFPInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[BCInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[WMFMPInst.Services]
+Include=Input.inf
+Needs=HID_Inst.NT.Services
+AddService = WmHidLo,,WMHIDLO_Service_Inst
+
+[WmFilter_Service_Inst]
+DisplayName    = %WmFilter.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_IGNORE%
+ServiceBinary  = %10%\system32\drivers\WmFilter.sys
+
+[WMHIDLO_Service_Inst]
+DisplayName    = %WMHIDLO.SvcDesc%
+ServiceType    = %SERVICE_KERNEL_DRIVER%
+StartType      = %SERVICE_DEMAND_START%
+ErrorControl   = %SERVICE_ERROR_IGNORE%
+ServiceBinary  = %10%\system32\drivers\WmHidLo.sys
+
+;-------------COPY FILEs ---------------------------------------------
+
+[WmJoy.CopyWmFilterSYS]
+WmFilter.sys
+
+[WmJoy.CopyUsbHidFilter]
+WmHidLo.sys
+
+[WmJoyFrc.Copy.DLL]
+WmJoyFrc.dll
+
+
+
+;-------------ADD REGs ---------------------------------------------
+[WmJoy.WmJoyFrcDLL.AddReg]
+HKCR,CLSID\%CLSID_WmFrcDLL_Config%,,,%CLSID_WmFrcDLL_Config.Desc%
+HKCR,CLSID\%CLSID_WmFrcDLL_Config%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WmFrcDLL_Config%\InProcServer32,ThreadingModel,,"Apartment"
+
+
+[WmJoy.Rally2.AddReg]
+HKLM,%Usb.WgmRally2%,OEMName,,%USB\VID_046D&PID_C202.DeviceName%
+HKLM,%Usb.WgmRally2%,OEMData, 1, 41, 00, 08, 10, 06, 00, 00, 00
+
+[WmJoy.FormulaGP.AddReg]
+HKLM,%FormulaGP%,OEMName,,%USB\VID_046D&PID_C20E.DeviceName%
+HKLM,%FormulaGP%,OEMData, 1, 41, 00, 08, 10, 06, 00, 00, 00
+
+[WmJoy.HidDevice.AddReg]
+HKLM,%Usb.WgmGpBlk%,OEMName,,%USB\VID_046D&PID_C209.DeviceName%
+HKLM,%Usb.WgmGpExt%,OEMName,,%USB\VID_046D&PID_C208.DeviceName%
+HKLM,%Usb.WMED3D%,OEMName,,%USB\VID_046D&PID_C207.DeviceName%
+HKLM,%Usb.WMED3D2%,OEMName,,%USB\VID_046D&PID_C207.DeviceName%
+HKLM,%ActionPad%,OEMName,,%USB\VID_046D&PID_C20B.DeviceName%
+HKLM,%PrecGP%,OEMName,,%USB\VID_046D&PID_C20C.DeviceName%
+HKLM,%Attack2%,OEMName,,%USB\VID_046D&PID_C20D.DeviceName%
+HKLM,%WMWJ%,OEMName,,%USB\VID_046D&PID_C213.DeviceName%
+HKLM,%WMCY%,OEMName,,%USB\VID_046D&PID_C214.DeviceName%
+HKLM,%WMKO%,OEMName,,%USB\VID_046D&PID_C215.DeviceName%
+HKLM,%WMOB%,OEMName,,%USB\VID_046D&PID_C216.DeviceName%
+HKLM,%WMPG%,OEMName,,%USB\VID_046D&PID_C21A.DeviceName%
+
+[WMRPInst.DelReg]
+HKLM,%WMRP%\Axes\2,Attributes
+HKLM,%WMRP%\Axes\5,Attributes
+HKLM,%WMRP%\Axes\6,Attributes
+
+[WMRPInst.AddReg]
+HKCR,CLSID\%CLSID_WMRP_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMRP_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMRP_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMRP%,OEMName,,%USB\VID_046D&PID_C20A.DeviceName%
+HKLM,%WMRP%\Axes\0,,,%XAX%
+HKLM,%WMRP%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMRP%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMRP%\Axes\1,,,%YAX%
+HKLM,%WMRP%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMRP%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMRP%\Axes\2,,,%EAX%
+HKLM,%WMRP%\Axes\5,,,%RAX%
+HKLM,%WMRP%\Axes\6,,,%TAX%
+HKLM,%WMRP%\Buttons\0,,,"A Button"
+HKLM,%WMRP%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\1,,,"B Button"
+HKLM,%WMRP%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\2,,,"C Button"
+HKLM,%WMRP%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\3,,,"X Button"
+HKLM,%WMRP%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\4,,,"Y Button"
+HKLM,%WMRP%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\5,,,"Z Button"
+HKLM,%WMRP%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\6,,,"Left Trigger"
+HKLM,%WMRP%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\7,,,"Right Trigger"
+HKLM,%WMRP%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%WMRP%\Buttons\8,,,"S Button"
+HKLM,%WMRP%\Buttons\8,Attributes,1,02,80,00,00
+HKLM,%WMRP%\POVs\0,,,"Hat Switch"
+HKLM,%WMRP%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMRP%\OEMForceFeedback,CLSID,,"%CLSID_WMRP_FF%"
+HKLM,%WMRPFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMRPFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMRPFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMRPFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMRPFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMRPFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMRPFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMRPFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMRPFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMRPFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMRPFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMRPFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRPFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMRPFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMRP2Inst.AddReg]
+HKCR,CLSID\%CLSID_WMRP2_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMRP2_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMRP2_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMRP2%,OEMName,,%USB\VID_046D&PID_C218.DeviceName%
+HKLM,%WMRP2%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMRP2%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMRP2%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMRP2%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMRP2%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\8,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\9,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\10,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\11,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\Buttons\12,Attributes,1,02,80,00,00
+HKLM,%WMRP2%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMRP2%\OEMForceFeedback,CLSID,,"%CLSID_WMRP2_FF%"
+HKLM,%WMRP2FF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMRP2FF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMRP2FF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMRP2FF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMRP2FF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMRP2FF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMRP2FF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMRP2FF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMRP2FF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMRP2FF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMRP2FF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMRP2FF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRP2FF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMRP2FF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMRWInst.AddReg]
+HKCR,CLSID\%CLSID_WMRW_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMRW_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMRW_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMRW%,OEMData,1,03,0,8,10,c,0,0,0
+HKLM,%WMRW%,OEMName,,%USB\VID_046D&PID_CA04.DeviceName%
+HKLM,%WMRW%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMRW%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMRW%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMRW%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMRW%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\8,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\9,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\10,Attributes,1,02,80,00,00
+HKLM,%WMRW%\Buttons\11,Attributes,1,02,80,00,00
+HKLM,%WMRW%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMRW%\OEMForceFeedback,CLSID,,"%CLSID_WMRW_FF%"
+HKLM,%WMRWFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMRWFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMRWFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMRWFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMRWFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMRWFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMRWFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMRWFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMRWFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMRWFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMRWFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMRWFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMRWFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMRWFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMWPInst.AddReg]
+HKCR,CLSID\%CLSID_WMWP_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMWP_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMWP_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMWP%,OEMName,,%USB\VID_046D&PID_C211.DeviceName%
+HKLM,%WMWP%\Axes\0,,,%XAX%
+HKLM,%WMWP%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMWP%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMWP%\Axes\1,,,%YAX%
+HKLM,%WMWP%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMWP%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMWP%\Axes\2,,,%EAX%
+HKLM,%WMWP%\Axes\5,,,%RAX%
+HKLM,%WMWP%\Axes\6,,,%TAX%
+HKLM,%WMWP%\Buttons\0,,,"A Button"
+HKLM,%WMWP%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\1,,,"B Button"
+HKLM,%WMWP%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\2,,,"C Button"
+HKLM,%WMWP%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\3,,,"X Button"
+HKLM,%WMWP%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\4,,,"Y Button"
+HKLM,%WMWP%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\5,,,"Z Button"
+HKLM,%WMWP%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\6,,,"L1 Trigger"
+HKLM,%WMWP%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\7,,,"R1 Trigger"
+HKLM,%WMWP%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\8,,,"S Button"
+HKLM,%WMWP%\Buttons\8,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\9,,,"L2 Trigger"
+HKLM,%WMWP%\Buttons\9,Attributes,1,02,80,00,00
+HKLM,%WMWP%\Buttons\10,,,"R2 Trigger"
+HKLM,%WMWP%\Buttons\10,Attributes,1,02,80,00,00
+HKLM,%WMWP%\POVs\0,,,"Hat Switch"
+HKLM,%WMWP%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMWP%\OEMForceFeedback,CLSID,,"%CLSID_WMWP_FF%"
+HKLM,%WMWPFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMWPFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMWPFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMWPFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMWPFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMWPFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMWPFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMWPFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMWPFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMWPFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMWPFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMWPFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWPFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMWPFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMWP2Inst.AddReg]
+HKCR,CLSID\%CLSID_WMWP2_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMWP2_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMWP2_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMWP2%,OEMName,,%USB\VID_046D&PID_C219.DeviceName%
+HKLM,%WMWP2%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMWP2%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMWP2%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMWP2%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMWP2%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\8,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\9,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\10,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\11,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\Buttons\12,Attributes,1,02,80,00,00
+HKLM,%WMWP2%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMWP2%\OEMForceFeedback,CLSID,,"%CLSID_WMWP2_FF%"
+HKLM,%WMWP2FF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMWP2FF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMWP2FF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMWP2FF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMWP2FF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMWP2FF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMWP2FF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMWP2FF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMWP2FF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMWP2FF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMWP2FF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMWP2FF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMWP2FF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMWP2FF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMF3DInst.DelReg]
+HKLM,%WMF3D%\Axes\2,Attributes
+HKLM,%WMF3D%\Axes\5,Attributes
+
+[WMF3DInst.AddReg]
+HKCR,CLSID\%CLSID_WMF3D_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMF3D_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMF3D_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMF3D%,OEMName,,%USB\VID_046D&PID_C283.DeviceName%
+HKLM,%WMF3D%\Axes\0,,,%XAX%
+HKLM,%WMF3D%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMF3D%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMF3D%\Axes\1,,,%YAX%
+HKLM,%WMF3D%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMF3D%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMF3D%\Axes\2,,,%TAX%
+HKLM,%WMF3D%\Axes\5,,,%RAX%
+HKLM,%WMF3D%\Buttons\0,,,"Trigger"
+HKLM,%WMF3D%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMF3D%\Buttons\1,,,"Button 2"
+HKLM,%WMF3D%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMF3D%\Buttons\2,,,"Button 3"
+HKLM,%WMF3D%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMF3D%\Buttons\3,,,"Button 4"
+HKLM,%WMF3D%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMF3D%\Buttons\4,,,"Button 5"
+HKLM,%WMF3D%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMF3D%\Buttons\5,,,"Button 6"
+HKLM,%WMF3D%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMF3D%\Buttons\6,,,"Button 7"
+HKLM,%WMF3D%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMF3D%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMF3D%\OEMForceFeedback,CLSID,,"%CLSID_WMF3D_FF%"
+HKLM,%WMF3DFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMF3DFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMF3DFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMF3DFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMF3DFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMF3DFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMF3DFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMF3DFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMF3DFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMF3DFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMF3DFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMF3DFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMF3DFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMF3DFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMSF3DInst.DelReg]
+HKLM,%WMSF3D%\Axes\2,Attributes
+HKLM,%WMSF3D%\Axes\5,Attributes
+
+[WMSF3DInst.AddReg]
+HKCR,CLSID\%CLSID_WMSF3D_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMSF3D_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMSF3D_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMSF3D%,OEMName,,%USB\VID_046D&PID_C285.DeviceName%
+HKLM,%WMSF3D%\Axes\0,,,%XAX%
+HKLM,%WMSF3D%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMSF3D%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMSF3D%\Axes\1,,,%YAX%
+HKLM,%WMSF3D%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMSF3D%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMSF3D%\Axes\2,,,%TAX%
+HKLM,%WMSF3D%\Axes\5,,,%RAX%
+HKLM,%WMSF3D%\Buttons\0,,,"Trigger"
+HKLM,%WMSF3D%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMSF3D%\Buttons\1,,,"Button 2"
+HKLM,%WMSF3D%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMSF3D%\Buttons\2,,,"Button 3"
+HKLM,%WMSF3D%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMSF3D%\Buttons\3,,,"Button 4"
+HKLM,%WMSF3D%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMSF3D%\Buttons\4,,,"Button 5"
+HKLM,%WMSF3D%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMSF3D%\Buttons\5,,,"Button 6"
+HKLM,%WMSF3D%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMSF3D%\Buttons\6,,,"Button 7"
+HKLM,%WMSF3D%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMSF3D%\Buttons\7,,,"Roller Click"
+HKLM,%WMSF3D%\Buttons\6,Attributes,1,2,80,0,0
+HKLM,%WMSF3D%\Buttons\7,,,"Roller Forward"
+HKLM,%WMSF3D%\Buttons\7,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\8,,,"Roller Backward"
+HKLM,%WMSF3D%\Buttons\8,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\9,,,"POV 2 North"
+HKLM,%WMSF3D%\Buttons\9,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\10,,,"POV 2 East"
+HKLM,%WMSF3D%\Buttons\10,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\11,,,"POV 2 South"
+HKLM,%WMSF3D%\Buttons\11,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\12,,,"POV 2 West"
+HKLM,%WMSF3D%\Buttons\12,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\13,,,"POV 2 North-East"
+HKLM,%WMSF3D%\Buttons\13,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\14,,,"POV 2 South-East"
+HKLM,%WMSF3D%\Buttons\14,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\15,,,"POV 2 South-West"
+HKLM,%WMSF3D%\Buttons\15,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\Buttons\16,,,"POV 2 North-West"
+HKLM,%WMSF3D%\Buttons\16,Attributes,1,02,80,0,0
+HKLM,%WMSF3D%\POVs\0,,,"Hat Switch"
+HKLM,%WMSF3D%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMSF3D%\OEMForceFeedback,CLSID,,"%CLSID_WMSF3D_FF%"
+HKLM,%WMSF3DFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMSF3DFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMSF3DFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMSF3DFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMSF3DFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMSF3DFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMSF3DFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMSF3DFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMSF3DFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMSF3DFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMSF3DFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMSF3DFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMSF3DFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMSF3DFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+
+[DOMInst.AddReg]
+HKCR,CLSID\%CLSID_DOM_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_DOM_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_DOM_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%DOM%,OEMName,,%USB\VID_046D&PID_C286.DeviceName%
+HKLM,%DOM%\Axes\0,,,%XAX%
+HKLM,%DOM%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%DOM%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%DOM%\Axes\1,,,%YAX%
+HKLM,%DOM%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%DOM%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%DOM%\Axes\2,,,%TAX%
+HKLM,%DOM%\Axes\5,,,%RAX%
+HKLM,%DOM%\Buttons\0,,,"Trigger"
+HKLM,%DOM%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\1,,,"Button 2"
+HKLM,%DOM%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\2,,,"Button 3"
+HKLM,%DOM%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\3,,,"Button 4"
+HKLM,%DOM%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\4,,,"Button 5"
+HKLM,%DOM%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\5,,,"Button 6"
+HKLM,%DOM%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\6,,,"Button 7"
+HKLM,%DOM%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\7,,,"Button 8"
+HKLM,%DOM%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\8,,,"Button 9"
+HKLM,%DOM%\Buttons\8,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\9,,,"Button 10"
+HKLM,%DOM%\Buttons\9,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\10,,,"Button 11"
+HKLM,%DOM%\Buttons\10,Attributes,1,02,80,00,00
+HKLM,%DOM%\Buttons\11,,,"Button 12"
+HKLM,%DOM%\Buttons\11,Attributes,1,02,80,00,00
+HKLM,%DOM%\POVs\0,,,"Hat Switch"
+HKLM,%DOM%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%DOM%\OEMForceFeedback,CLSID,,"%CLSID_DOM_FF%"
+HKLM,%DOMFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%DOMFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%DOMFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%DOMFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%DOMFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%DOMFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%DOMFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%DOMFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%DOMFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%DOMFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%DOMFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%DOMFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DOMFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%DOMFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMFFLInst.DelReg]
+HKLM,%WMFFL%\Axes\2,Attributes
+HKLM,%WMFFL%\Axes\5,Attributes
+
+[WMFFLInst.AddReg]
+HKCR,CLSID\%CLSID_WMFFL_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMFFL_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMFFL_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMFFL%,OEMName,,%USB\VID_046D&PID_C293.DeviceName%
+HKLM,%WMFFL%,OEMData,1,41,00,08,10,06,00,00,00
+HKLM,%WMFFL%\Axes\0,,,%WAX%
+HKLM,%WMFFL%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMFFL%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMFFL%\Axes\1,,,%CAX%
+HKLM,%WMFFL%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMFFL%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMFFL%\Axes\2,,,%AAX%
+HKLM,%WMFFL%\Axes\5,,,%BAX%
+HKLM,%WMFFL%\Buttons\0,,,"Left Paddle"
+HKLM,%WMFFL%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMFFL%\Buttons\1,,,"Right Paddle"
+HKLM,%WMFFL%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMFFL%\Buttons\2,,,"Button 3"
+HKLM,%WMFFL%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMFFL%\Buttons\3,,,"Button 4"
+HKLM,%WMFFL%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMFFL%\Buttons\4,,,"Button 5"
+HKLM,%WMFFL%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMFFL%\Buttons\5,,,"Button 6"
+HKLM,%WMFFL%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMFFL%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMFFL%\OEMForceFeedback,CLSID,,"%CLSID_WMFFL_FF%"
+HKLM,%WMFFLFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMFFLFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMFFLFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMFFLFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMFFLFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMFFLFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMFFLFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMFFLFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMFFLFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMFFLFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMFFLFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMFFLFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFFLFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMFFLFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[DFE.AddReg]
+HKLM,%DF%,OEMName,,%USB\VID_046D&PID_C294&REV_2000.DeviceName%
+
+[FFR.AddReg]
+HKLM,%DF%,OEMName,,%USB\VID_046D&PID_C294&REV_2100.DeviceName%
+
+[DFR.AddReg]
+HKLM,%DF%,OEMName,,%USB\VID_046D&PID_C294&REV_2200.DeviceName%
+
+[DF.AddReg]
+HKLM,%DF%,OEMName,,%USB\VID_046D&PID_C294.DeviceName%
+
+[DFCommon.AddReg]
+HKCR,CLSID\%CLSID_DF_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_DF_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_DF_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%DF%,OEMData,1,43,00,08,10,0c,00,00,00
+HKLM,%DF%\Axes\0,,,%WAX%
+HKLM,%DF%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%DF%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%DF%\Axes\1,,,%CAX%
+HKLM,%DF%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%DF%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%DF%\Axes\2,,,%AAX%
+HKLM,%DF%\Axes\5,,,%BAX%
+HKLM,%DF%\Buttons\0,,,"Cross"
+HKLM,%DF%\Buttons\0,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\1,,,"Square"
+HKLM,%DF%\Buttons\1,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\2,,,"Circle"
+HKLM,%DF%\Buttons\2,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\3,,,"Triangle"
+HKLM,%DF%\Buttons\3,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\4,,,"R1"
+HKLM,%DF%\Buttons\4,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\5,,,"L1"
+HKLM,%DF%\Buttons\5,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\6,,,"R2"
+HKLM,%DF%\Buttons\6,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\7,,,"L2"
+HKLM,%DF%\Buttons\7,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\8,,,"Select"
+HKLM,%DF%\Buttons\8,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\9,,,"Start"
+HKLM,%DF%\Buttons\9,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\10,,,"Right Paddle"
+HKLM,%DF%\Buttons\10,Attributes,1,2,80,0,0
+HKLM,%DF%\Buttons\11,,,"Left Paddle"
+HKLM,%DF%\Buttons\11,Attributes,1,2,80,0,0
+HKLM,%DF%\OEMForceFeedback,Attributes,1,0,0,0,0,E8,3,0,0,E8,3,0,0
+HKLM,%DF%\OEMForceFeedback,CLSID,,"%CLSID_DF_FF%"
+HKLM,%DFFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%DFFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%DFFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%DFFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%DFFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%DFFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%DFFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%DFFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%DFFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%DFFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%DFFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%DFFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%DFFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[DFPInst.AddReg]
+HKCR,CLSID\%CLSID_DFP_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_DFP_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_DFP_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%DFP%,OEMName,,%USB\VID_046D&PID_C298.DeviceName%
+HKLM,%DFP%,OEMData,1,43,00,08,10,0e,00,00,00
+HKLM,%DFP%\Axes\0,,,%WAX%
+HKLM,%DFP%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%DFP%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%DFP%\Axes\1,,,%CAX%
+HKLM,%DFP%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%DFP%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%DFP%\Axes\2,,,%AAX%
+HKLM,%DFP%\Axes\5,,,%BAX%
+HKLM,%DFP%\Buttons\0,,,"Cross"
+HKLM,%DFP%\Buttons\0,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\1,,,"Square"
+HKLM,%DFP%\Buttons\1,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\2,,,"Circle"
+HKLM,%DFP%\Buttons\2,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\3,,,"Triangle"
+HKLM,%DFP%\Buttons\3,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\4,,,"Right Paddle (R1)"
+HKLM,%DFP%\Buttons\4,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\5,,,"Left Paddle (L1)"
+HKLM,%DFP%\Buttons\5,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\6,,,"R2"
+HKLM,%DFP%\Buttons\6,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\7,,,"L2"
+HKLM,%DFP%\Buttons\7,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\8,,,"Select"
+HKLM,%DFP%\Buttons\8,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\9,,,"Start"
+HKLM,%DFP%\Buttons\9,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\10,,,"R3"
+HKLM,%DFP%\Buttons\10,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\11,,,"L3"
+HKLM,%DFP%\Buttons\11,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\12,,,"Shifter Backwards"
+HKLM,%DFP%\Buttons\12,Attributes,1,2,80,0,0
+HKLM,%DFP%\Buttons\13,,,"Shifter Forwards"
+HKLM,%DFP%\Buttons\13,Attributes,1,2,80,0,0
+HKLM,%DFP%\OEMForceFeedback,Attributes,1,0,0,0,0,E8,3,0,0,E8,3,0,0
+HKLM,%DFP%\OEMForceFeedback,CLSID,,"%CLSID_DFP_FF%"
+HKLM,%DFPFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%DFPFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%DFPFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%DFPFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%DFPFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%DFPFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%DFPFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%DFPFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%DFPFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%DFPFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%DFPFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%DFPFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%DFPFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%DFPFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[WMFMPInst.AddReg]
+HKCR,CLSID\%CLSID_WMFMP_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_WMFMP_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_WMFMP_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%WMFMP%,OEMName,,%USB\VID_046D&PID_C295.DeviceName%
+HKLM,%WMFMP%,OEMData,1,41,00,08,10,08,00,00,00
+HKLM,%WMFMP%\Axes\0,,,%WAX%
+HKLM,%WMFMP%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%WMFMP%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMFMP%\Axes\1,,,%CAX%
+HKLM,%WMFMP%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%WMFMP%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%WMFMP%\Axes\2,,,%AAX%
+HKLM,%WMFMP%\Axes\5,,,%BAX%
+HKLM,%WMFMP%\Buttons\0,,,"Left Paddle"
+HKLM,%WMFMP%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\Buttons\1,,,"Right Paddle"
+HKLM,%WMFMP%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\Buttons\2,,,"Button 3"
+HKLM,%WMFMP%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\Buttons\3,,,"Button 4"
+HKLM,%WMFMP%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\Buttons\4,,,"Button 5"
+HKLM,%WMFMP%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\Buttons\5,,,"Button 6"
+HKLM,%WMFMP%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\Buttons\6,,,"Button 7"
+HKLM,%WMFMP%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\Buttons\7,,,"Button 8"
+HKLM,%WMFMP%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%WMFMP%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%WMFMP%\OEMForceFeedback,CLSID,,"%CLSID_WMFMP_FF%"
+HKLM,%WMFMPFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%WMFMPFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%WMFMPFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%WMFMPFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%WMFMPFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%WMFMPFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%WMFMPFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%WMFMPFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%WMFMPFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%WMFMPFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%WMFMPFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%WMFMPFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%WMFMPFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%WMFMPFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[BCInst.AddReg]
+HKCR,CLSID\%CLSID_BC_FF%,,,%CLSID_WMFF.Desc%
+HKCR,CLSID\%CLSID_BC_FF%\InProcServer32,,,%11%\WmJoyFrc.dll
+HKCR,CLSID\%CLSID_BC_FF%\InProcServer32,ThreadingModel,,"Both"
+HKLM,%BC%,OEMName,,%USB\VID_046D&PID_CA03.DeviceName%
+HKLM,%BC%,OEMData,1,41,00,08,10,0a,00,00,00
+HKLM,%BC%\Axes\0,,,%WAX%
+HKLM,%BC%\Axes\0,Attributes,1,01,81,00,00
+HKLM,%BC%\Axes\0,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%BC%\Axes\1,,,%CAX%
+HKLM,%BC%\Axes\1,Attributes,1,01,81,00,00
+HKLM,%BC%\Axes\1,FFAttributes,1,0A,00,00,00,00,01,00,00
+HKLM,%BC%\Axes\2,,,%AAX%
+HKLM,%BC%\Axes\5,,,%BAX%
+HKLM,%BC%\Buttons\0,,,"Left Paddle"
+HKLM,%BC%\Buttons\0,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\1,,,"Right Paddle"
+HKLM,%BC%\Buttons\1,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\2,,,"Button 3"
+HKLM,%BC%\Buttons\2,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\3,,,"Button 4"
+HKLM,%BC%\Buttons\3,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\4,,,"Button 5"
+HKLM,%BC%\Buttons\4,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\5,,,"Button 6"
+HKLM,%BC%\Buttons\5,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\6,,,"Button 7"
+HKLM,%BC%\Buttons\6,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\7,,,"Button 8"
+HKLM,%BC%\Buttons\7,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\8,,,"Shifter Backward"
+HKLM,%BC%\Buttons\8,Attributes,1,02,80,00,00
+HKLM,%BC%\Buttons\9,,,"Shifter Forward"
+HKLM,%BC%\Buttons\9,Attributes,1,02,80,00,00
+HKLM,%BC%\OEMForceFeedback,Attributes,1,00,00,00,00,E8,03,00,00,E8,03,00,00
+HKLM,%BC%\OEMForceFeedback,CLSID,,"%CLSID_BC_FF%"
+HKLM,%BCFF%\%F_CONST%,,0,%FN_CONST%
+HKLM,%BCFF%\%F_CONST%,Attributes,1,0,0,0,0,1,86,0,0,ED,3,0,0,ED,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_RAMP%,,0,%FN_RAMP%
+HKLM,%BCFF%\%F_RAMP%,Attributes,1,1,0,0,0,2,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_SQUARE%,,0,%FN_SQUARE%
+HKLM,%BCFF%\%F_SQUARE%,Attributes,1,2,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_SINE%,,0,%FN_SINE%
+HKLM,%BCFF%\%F_SINE%,Attributes,1,3,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_TRI%,,0,%FN_TRI%
+HKLM,%BCFF%\%F_TRI%,Attributes,1,4,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_SAWUP%,,0,%FN_SAWUP%
+HKLM,%BCFF%\%F_SAWUP%,Attributes,1,5,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_SAWDN%,,0,%FN_SAWDN%
+HKLM,%BCFF%\%F_SAWDN%,Attributes,1,6,0,0,0,3,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_SPRING%,,0,%FN_SPRING%
+HKLM,%BCFF%\%F_SPRING%,Attributes,1,7,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_DAMP%,,0,%FN_DAMP%
+HKLM,%BCFF%\%F_DAMP%,Attributes,1,8,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_INERT%,,0,%FN_INERT%
+HKLM,%BCFF%\%F_INERT%,Attributes,1,9,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_FRIC%,,0,%FN_FRIC%
+HKLM,%BCFF%\%F_FRIC%,Attributes,1,a,0,0,0,4,D8,0,0,6D,3,0,0,6D,3,0,0,30,0,0,0
+HKLM,%BCFF%\%F_CUST%,,0,%FN_CUST%
+HKLM,%BCFF%\%F_CUST%,Attributes,1,0,1,0,0,5,86,0,0,EF,3,0,0,EF,3,0,0,30,0,0,0
+
+[Strings]
+VENDOR                              = "Logitech Inc."
+DiskDesc                            = "Logitech Gaming Software"
+WMHIDLO.SvcDesc                     = "Logitech Gaming USB Filter Driver"
+WmFilter.SvcDesc                    = "Logitech Gaming HID Filter Driver"
+
+SPSVCINST_ASSOCSERVICE= 0x00000002
+SERVICE_KERNEL_DRIVER = 1
+SERVICE_DEMAND_START  = 3
+SERVICE_ERROR_IGNORE  = 0
+
+USB\VID_046D&PID_C202.DeviceName    = "Logitech WingMan Formula (Yellow) (USB)"
+USB\VID_046D&PID_C207.DeviceName    = "Logitech WingMan Extreme Digital 3D (USB)"
+USB\VID_046D&PID_C208.DeviceName    = "Logitech WingMan Gamepad Extreme (USB)"
+USB\VID_046D&PID_C209.DeviceName    = "Logitech WingMan Gamepad Black (USB)"
+USB\VID_046D&PID_C20A.DeviceName    = "Logitech WingMan RumblePad USB"
+USB\VID_046D&PID_C20B.DeviceName    = "Logitech WingMan Action Pad"
+USB\VID_046D&PID_C20C.DeviceName    = "Logitech WingMan Precision USB Gamepad"
+USB\VID_046D&PID_C20D.DeviceName    = "Logitech WingMan Attack 2"
+USB\VID_046D&PID_C20E.DeviceName    = "Logitech WingMan Formula GP"
+USB\VID_046D&PID_C211.DeviceName    = "Logitech WingMan Cordless Gamepad USB"
+USB\VID_046D&PID_C213.DeviceName    = "Logitech Freedom 2.4 USB"
+USB\VID_046D&PID_C214.DeviceName    = "Logitech Attack 3 USB"
+USB\VID_046D&PID_C215.DeviceName    = "Logitech Extreme 3D Pro USB"
+USB\VID_046D&PID_C216.DeviceName    = "Logitech Dual Action USB"
+USB\VID_046D&PID_C218.DeviceName    = "Logitech RumblePad 2 USB"
+USB\VID_046D&PID_C219.DeviceName    = "Logitech Cordless RumblePad 2 USB"
+USB\VID_046D&PID_C21A.DeviceName    = "Logitech Precision Gamepad USB"
+USB\VID_046D&PID_C283.DeviceName    = "Logitech WingMan Force 3D USB"
+USB\VID_046D&PID_C285.DeviceName    = "Logitech WingMan Strike Force 3D USB"
+USB\VID_046D&PID_C286.DeviceName    = "Logitech Force 3D Pro USB"
+USB\VID_046D&PID_C293.DeviceName    = "Logitech WingMan Formula Force GP USB"
+USB\VID_046D&PID_C294&REV_2000.DeviceName = "Logitech Driving Force EX USB"
+USB\VID_046D&PID_C294&REV_2100.DeviceName = "Logitech Formula Force RX USB"
+USB\VID_046D&PID_C294&REV_2200.DeviceName = "Logitech Driving Force RX USB"
+USB\VID_046D&PID_C294.DeviceName    = "Logitech Driving Force USB"
+USB\VID_046D&PID_C295.DeviceName    = "Logitech MOMO Force USB"
+USB\VID_046D&PID_C298.DeviceName    = "Logitech Driving Force Pro USB"
+USB\VID_046D&PID_CA03.DeviceName    = "Logitech MOMO Racing USB"
+USB\VID_046D&PID_CA04.DeviceName    = "Logitech Racing Wheel USB"
+
+HID\VID_046D&PID_C202.DeviceName    = "Logitech WingMan Formula (Yellow) (USB) (HID)"
+HID\VID_046D&PID_C207.DeviceName    = "Logitech WingMan Extreme Digital 3D (USB) (HID)"
+HID\VID_046D&PID_C208.DeviceName    = "Logitech WingMan Gamepad Extreme (USB) (HID)"
+HID\VID_046D&PID_C209.DeviceName    = "Logitech WingMan Gamepad Black (USB) (HID)"
+HID\VID_046D&PID_C20A.DeviceName    = "Logitech WingMan RumblePad (HID)"
+HID\VID_046D&PID_C20B.DeviceName    = "Logitech WingMan Action Pad (HID)"
+HID\VID_046D&PID_C20C.DeviceName    = "Logitech WingMan Precision USB Gamepad (HID)"
+HID\VID_046D&PID_C20D.DeviceName    = "Logitech WingMan Attack 2 (HID)"
+HID\VID_046D&PID_C20E.DeviceName    = "Logitech WingMan Formula GP (HID)"
+HID\VID_046D&PID_C211.DeviceName    = "Logitech WingMan Cordless Gamepad (HID)"
+HID\VID_046D&PID_C213.DeviceName    = "Logitech Freedom 2.4 (HID)"
+HID\VID_046D&PID_C214.DeviceName    = "Logitech Attack 3 (HID)"
+HID\VID_046D&PID_C215.DeviceName    = "Logitech Extreme 3D Pro (HID)"
+HID\VID_046D&PID_C216.DeviceName    = "Logitech Dual Action (HID)"
+HID\VID_046D&PID_C218.DeviceName    = "Logitech RumblePad 2 HID"
+HID\VID_046D&PID_C219.DeviceName    = "Logitech Cordless RumblePad 2 HID"
+HID\VID_046D&PID_C21A.DeviceName    = "Logitech Precision Gamepad (HID)"
+HID\VID_046D&PID_C283.DeviceName    = "Logitech WingMan Force 3D USB (HID)"
+HID\VID_046D&PID_C285.DeviceName    = "Logitech WingMan Strike Force 3D USB (HID)"
+HID\VID_046D&PID_C286.DeviceName    = "Logitech Force 3D Pro USB (HID)"
+HID\VID_046D&PID_C293.DeviceName    = "Logitech WingMan Formula Force GP USB (HID)"
+HID\VID_046D&PID_C294&REV_2000.DeviceName = "Logitech Driving Force EX USB (HID)"
+HID\VID_046D&PID_C294&REV_2100.DeviceName = "Logitech Formula Force RX USB (HID)"
+HID\VID_046D&PID_C294&REV_2200.DeviceName = "Logitech Driving Force RX USB (HID)"
+HID\VID_046D&PID_C294.DeviceName    = "Logitech Driving Force USB (HID)"
+HID\VID_046D&PID_C295.DeviceName    = "Logitech MOMO Force USB (HID)"
+HID\VID_046D&PID_C298.DeviceName    = "Logitech Driving Force Pro USB (HID)"
+HID\VID_046D&PID_CA03.DeviceName    = "Logitech MOMO Racing (HID)"
+HID\VID_046D&PID_CA04.DeviceName    = "Logitech Racing Wheel HID"
+
+Usb.WgmRally2                       = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C202"
+Usb.WMED3D                          = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C207"
+Usb.WgmGpExt                        = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C208"
+Usb.WgmGpBlk                        = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C209"
+WMRP                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C20A"
+WMRPFF                              = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C20A\OEMForceFeedback\Effects"
+WMRP2                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C218"
+WMRP2FF                             = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C218\OEMForceFeedback\Effects"
+WMRW                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_CA04"
+WMRWFF                              = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_CA04\OEMForceFeedback\Effects"
+ActionPad                           = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C20B"
+PrecGP                              = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C20C"
+Attack2                             = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C20D"
+FormulaGP                           = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C20E"
+WMWP                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C211"
+WMWPFF                              = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C211\OEMForceFeedback\Effects"
+WMWP2                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C219"
+WMWP2FF                             = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C219\OEMForceFeedback\Effects"
+Usb.WMED3D2                         = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C212"
+WMWJ                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C213"
+WMCY                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C214"
+WMKO                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C215"
+WMOB                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C216"
+WMF3D                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C283"
+WMF3DFF                             = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C283\OEMForceFeedback\Effects"
+WMSF3D                              = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C285"
+WMSF3DFF                            = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C285\OEMForceFeedback\Effects"
+DOM                                 = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C286"
+DOMFF                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C286\OEMForceFeedback\Effects"
+WMFFL                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C293"
+WMFFLFF                             = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C293\OEMForceFeedback\Effects"
+DF                                  = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C294"
+DFFF                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C294\OEMForceFeedback\Effects"
+DFP                                 = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C298"
+DFPFF                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C298\OEMForceFeedback\Effects"
+WMFMP                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C295"
+WMFMPFF                             = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C295\OEMForceFeedback\Effects"
+BC                                  = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_CA03"
+BCFF                                = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_CA03\OEMForceFeedback\Effects"
+WMPG                               = "System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM\VID_046D&PID_C21A"
+
+CLSID_WmFrcDLL_Config               = "{60150902-C4AE-11D1-B59B-00A0C9971EFC}"
+CLSID_WMF3D_FF                      = "{8D533A40-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMFFL_FF                      = "{8D533A41-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMRP_FF                       = "{8D533A42-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMSF3D_FF                     = "{8D533A43-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMFMP_FF                      = "{8D533A44-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMWP_FF                       = "{8D533A45-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_BC_FF                         = "{8D533A46-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_DF_FF                         = "{8D533A47-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMRP2_FF                      = "{8D533A48-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMWP2_FF                      = "{8D533A49-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WMRW_FF                       = "{8D533A4A-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_DFP_FF                        = "{8D533A4B-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_DOM_FF                        = "{8D533A4C-7A5F-11D3-8297-0050DA1A72D3}"
+CLSID_WmFrcDLL_Config.Desc          = "Logitech WingMan FF Configuration DLL"
+CLSID_WMFF.Desc	                    = "Logitech WingMan FF DLL"
+
+F_CONST="{13541C20-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_CONST="Constant"
+F_RAMP="{13541C21-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_RAMP="Ramp Force"
+F_SQUARE="{13541C22-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SQUARE="Square Wave"
+F_SINE="{13541C23-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SINE="Sine Wave"
+F_TRI="{13541C24-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_TRI="Triangle Wave"
+F_SAWUP="{13541C25-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SAWUP="Sawtooth Up Wave"
+F_SAWDN="{13541C26-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SAWDN="Sawtooth Down Wave"
+F_SPRING="{13541C27-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_SPRING="Spring"
+F_DAMP="{13541C28-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_DAMP="Damper"
+F_INERT="{13541C29-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_INERT="Inertia"
+F_FRIC="{13541C2A-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_FRIC="Friction"
+F_CUST="{13541C2B-8E33-11D0-9AD0-00A0C9A06E35}"
+FN_CUST="CustomForce"
+
+; stuff
+WAX="Wheel axis"
+CAX="Combined pedals"
+AAX="Accelerator"
+BAX="Brake"
+XAX="X axis"
+YAX="Y axis"
+TAX="Throttle"
+RAX="Rudder"
+EAX="Extra"

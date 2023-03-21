@@ -1,0 +1,77 @@
+;/*++
+;    WmBEnum.inf
+;
+;Abstract:
+;    INF file for installing Logitech Virtual bus enumerator driver
+;
+; Copyright 2001-2004 Logitech Inc.
+
+
+[Version]
+Signature="$CHICAGO$"
+Class=System
+ClassGuid={4D36E97D-E325-11CE-BFC1-08002BE10318}
+Provider=%Vendor%
+DriverVer=04/12/2005, 4.60.345.0
+CatalogFile=WmBEnum.cat
+
+[SourceDisksNames]
+55=%DiskDesc%,"LGS_4_60",,
+
+[SourceDisksFiles]
+WmBEnum.sys=55
+WmXlCore.sys=55
+
+[DestinationDirs]
+DefaultDestDir = 12
+Drivers_Dir = 12
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[Manufacturer]
+%StdMfg%=Standard
+
+[Standard]
+%LogiVirtualBus.DeviceDesc%=LogiVirtualBus_Device, root\LogiVirtualBus
+
+[LogiVirtualBus_Device]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+WmBEnum.sys
+WmXlCore.sys
+
+[LogiVirtualBus_Device.HW]
+AddReg = WmXlCore_LogiBus_Filter.AddReg.HW
+
+[WmXlCore_LogiBus_Filter.AddReg.HW]
+HKR,,"UpperFilters",0x00010000,"WmXlCore"
+
+[LogiVirtualBus_Device.Services]
+AddService = WmBEnum, 0x00000002, Virtual_Bus_Enum_Service_Inst
+AddService = WmXlCore, , Virtual_Bus_Enum_Filter_Service_Inst
+
+[Virtual_Bus_Enum_Service_Inst]
+DisplayName    = %WmBEnum.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START 
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\system32\drivers\WmBEnum.sys
+LoadOrderGroup = Extended Base
+
+[Virtual_Bus_Enum_Filter_Service_Inst]
+DisplayName    = "Logitech WingMan Translation Layer Driver"
+ServiceType    = 1 ;%SERVICE_KERNEL_DRIVER%
+StartType      = 3 ;%SERVICE_DEMAND_START%
+ErrorControl   = 0 ;%SERVICE_ERROR_IGNORE%
+ServiceBinary  = %10%\system32\drivers\WmXlCore.sys
+LoadOrderGroup = extended base
+
+[Strings]
+Vendor = "Logitech Inc"
+DiskDesc="Logitech Gaming Software"
+StdMfg = "(Standard system devices)"
+
+LogiVirtualBus.DeviceDesc = "Logitech Virtual Bus Enumerator"
+WmBEnum.SVCDESC = "Logitech Virtual Bus Enumerator Driver"

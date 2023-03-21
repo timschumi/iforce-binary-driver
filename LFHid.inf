@@ -1,0 +1,302 @@
+[Version]
+LayoutFile=Layout.inf, Layout1.inf, Layout2.inf
+Signature="$CHICAGO$"
+Class=Mouse
+ClassGUID={4d36e96f-e325-11ce-bfc1-08002be10318}
+Provider=Logitech
+
+[DestinationDirs]
+DefaultDestDir=11
+LFMR.Copy.Sys=10,system32\drivers
+
+[SourceDisksNames]
+55=%DiskDesc%,"LGS_4_50",,
+
+[SourceDisksFiles]
+LFLoad.sys=55
+IHidFilt.sys=55
+LHidHi.sys=55
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[Manufacturer]
+%Logitech%=Logitech
+
+[Logitech]
+%VID_046D&PID_C2A0%=LFMB_Inst,USB\VID_046D&PID_C2A0
+%VID_046D&PID_C2A0_H%=LFMB2_Inst,HID\VID_046D&PID_C2A0
+%VID_046D&PID_C2A1%=LFM_Run,USB\VID_046D&PID_C2A1
+%VID_046D&PID_C2A1_H%=LFM_Mouse,HID\VID_046D&PID_C2A1
+%VID_046D&PID_C2A1_H1%=LFM_MouseM,HID\VID_046D&PID_C2A1&COL01
+%VID_046D&PID_C2A1_H2%=LFM_MouseM,HID\VID_046D&PID_C2A1&COL02
+%VID_046D&PID_C2A1_H3%=LFM_MouseJ,HID\VID_046D&PID_C2A1&COL03
+%VID_046D&PID_C2A1_H4%=LFM_MouseP,HID\VID_046D&PID_C2A1&COL04
+
+;; 98 - no collection matches
+[LFM_Mouse]
+Include=msmouse.inf,joystick.inf,lfhid.inf
+Needs=HIDMouse,HIDGameDevice,LFMSpecialAddReg
+
+[LFM_Mouse.HW]
+AddReg=HIDMouse.AddReg.HW
+
+[HIDMouse.AddReg.HW]
+HKR,,"LowerFilters",,"LHidHi.sys"
+
+;; ME - with collection matches
+[LFM_MouseM]
+Include=msmouse.inf
+Needs=HIDMouse
+
+[LFM_MouseM.HW]
+AddReg=HIDMouse.AddReg.HW
+
+[LFM_MouseJ]
+Include=joystick.inf
+Needs=HIDGameDevice
+
+[LFM_MouseJ.HW]
+AddReg=HIDMouse.AddReg.HW
+
+[LFM_MouseP]
+
+[LFMSpecialAddReg]
+AddReg=HIDMouse.AddReg
+
+[HIDMouse.AddReg]
+HKR,,DevLoader,,"*ntkern,mmdevldr.vxd"
+HKR,,NTMPDriver,,"mouhid.vxd,joyhid.vxd"
+HKR,,Driver,,vjoyd.vxd
+HKR,Drivers\joystick\msjstick.drv,Driver,,msjstick.drv
+HKR,Drivers,SubClasses,,"joystick"
+HKR,Drivers,MIGRATED,,0
+HKR,Drivers\joystick,,,
+HKR,Drivers\joystick\msjstick.drv,Description,,%HID_DEVICE_SYSTEM_GAME%
+
+
+[LFMB_Inst]
+Include=Hiddev.inf
+Needs=USBHIDDevice
+CopyFiles=LFMR.Copy.Sys
+AddReg=LFMB.AddReg
+
+[LFMR.Copy.Sys]
+LFLoad.sys
+IHidFilt.sys
+LHidHi.sys
+
+[LFMB.AddReg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce\Setup,"FEELit Device Manager",0,"FEELitDM.exe -spawn"
+
+[LFMB2_Inst]
+AddReg=LFMB2.AddReg
+
+[LFMB2.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,ExecuteFlag,1,0x00,0x00,0x00,0x00
+HKR,,NTMPDriver,,"LFLoad.sys"
+
+[LFM_Run]
+Include=Hiddev.inf
+Needs=USBHIDDevice
+AddReg=LFMR.AddReg, DI.AddReg, CPL.AddReg
+
+[LFM_Run.HW]
+AddReg=LFMR.AddReg.HW
+
+[LFMR.AddReg]
+; FEELit Device Manager service installation
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunServices,FEELitDeviceManager,0,FEELitDM.exe
+
+; FEELit Class Registration
+; note: this could be achieved with "regsvr32 FEELit.dll"
+HKCR,CLSID\%CLSID_IFEELIT%,,0,"FEELit API, FEELit Component"
+HKCR,CLSID\%CLSID_IFEELIT%\InProcServer32,,0,"%11%\Feelit.dll"
+HKCR,CLSID\%CLSID_IFEELIT%\InProcServer32,ThreadingModel,0,"Apartment"
+HKCR,CLSID\%CLSID_IFEELIT%\ProgID,,0,"FEELitAPI.FEELit.1"
+HKCR,CLSID\%CLSID_IFEELIT%\VersionIndependentProgID,,0,"FEELitAPI.FEELit"
+HKCR,CLSID\%CLSID_IFEELITDEVICE%,,0,"FEELit API, FEELitDevice Component"
+HKCR,CLSID\%CLSID_IFEELITDEVICE%\InProcServer32,,0,"%11%\Feelit.dll"
+HKCR,CLSID\%CLSID_IFEELITDEVICE%\InProcServer32,ThreadingModel,0,"Apartment"
+HKCR,CLSID\%CLSID_IFEELITDEVICE%\ProgID,,0,"FEELitAPI.FEELitDevice.1"
+HKCR,CLSID\%CLSID_IFEELITDEVICE%\VersionIndependentProgID,,0,"FEELitAPI.FEELitDevice"
+HKCR,CLSID\%CLSID_IFEELITCONFIG%,,0,"FEELit API, FEELitConfig Component"
+HKCR,CLSID\%CLSID_IFEELITCONFIG%\InProcServer32,,0,"%11%\Feelit.dll"
+HKCR,CLSID\%CLSID_IFEELITCONFIG%\InProcServer32,ThreadingModel,0,"Apartment"
+HKCR,CLSID\%CLSID_IFEELITCONFIG%\ProgID,,0,"FEELitAPI.FEELitConfig.1"
+HKCR,CLSID\%CLSID_IFEELITCONFIG%\VersionIndependentProgID,,0,"FEELitAPI.FEELitConfig"
+
+; FEELitD Class Registration
+; note: this could be achieved with "regsvr32 FEELitD.dll"
+HKCR,CLSID\%CLSID_IFEELITEFFECTDRIVER%,,0,"Immersion's FEELitEffectDriver Component"
+HKCR,CLSID\%CLSID_IFEELITEFFECTDRIVER%\InProcServer32,,0,"%11%\FeelitD.dll"
+HKCR,CLSID\%CLSID_IFEELITEFFECTDRIVER%\InProcServer32,ThreadingModel,0,Both
+HKCR,CLSID\%CLSID_IFEELITEFFECTDRIVER%\ProgID,,0,"Immersion.FEELit.FEELitEffectDriver.1"
+HKCR,CLSID\%CLSID_IFEELITEFFECTDRIVER%\VersionIndependentProgID,,0,"Immersion.FEELit.FEELitEffectDriver"
+HKCR,CLSID\%CLSID_IDIRECTINPUTEFFECTDRIVER%,,0,"Immersion's DirectInputEfectDriver for the FEELit Mouse"
+HKCR,CLSID\%CLSID_IDIRECTINPUTEFFECTDRIVER%\InProcServer32,,0,"%11%\FeelitD.dll"
+HKCR,CLSID\%CLSID_IDIRECTINPUTEFFECTDRIVER%\InProcServer32,ThreadingModel,0,Both
+HKCR,CLSID\%CLSID_IDIRECTINPUTEFFECTDRIVER%\ProgID,,0,"Immersion.FEELit.DirectInputEffectDriver.1"
+HKCR,CLSID\%CLSID_IDIRECTINPUTEFFECTDRIVER%\VersionIndependentProgID,,0,"Immersion.FEELit.DirectInputEffectDriver"
+
+; Feelit.dll expects us to create these, and uses them in device enumeration.
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%,ProductName,0,%VID_046D&PID_C2A1_H%
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%,DeviceType,1,02,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%,DriverCLSID,0,%CLSID_IFEELITEFFECTDRIVER%
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%,ProductGUID,0,"{99BB5400-2B94-11D1-B049-0020AF30269A}"
+
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback,CLSID,0,"%CLSID_IDIRECTINPUTEFFECTDRIVER%"
+
+; Global control variables- Most of these are old crap that can probably be removed -jlb
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings,ControlFlags,1,00,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings,DebugFlags,1,00,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings,DebugLogPath,0,"c:\"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings,DeadZone,1,00,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings,NumDevices,1,01,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings,pollMonitorPeriod,1,00,01,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings,pollTimeoutPeriod,1,00,10,00,00
+
+; Per-device dynamic settings, loaded by drivers with info from device detection, etc.
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Settings\Device0
+
+; Buttons
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Buttons\0,,0,"Button 0"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Buttons\0,Attributes,1,02,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Buttons\1,,0,"Button 1"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Buttons\1,Attributes,1,02,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Buttons\2,,0,"Button 2"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Buttons\2,Attributes,1,02,00,00,00
+
+; Axes
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Axes\0,,0,"X Axis"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Axes\0,Attributes,1,01,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Axes\0,FFAttributes,1,05,00,00,00,c8,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Axes\1,,0,"Y Axis"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Axes\1,Attributes,1,01,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\Axes\1,FFAttributes,1,05,00,00,00,c8,00,00,00
+
+; Effects
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df71-2911-11d1-b049-0020af30269a},,0,"Constant"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df71-2911-11d1-b049-0020af30269a},Attributes,1,01,00,00,00,01,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df73-2911-11d1-b049-0020af30269a},,0,"Square Wave"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df73-2911-11d1-b049-0020af30269a},Attributes,1,02,00,00,00,03,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df75-2911-11d1-b049-0020af30269a},,0,"Triangle Wave"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df75-2911-11d1-b049-0020af30269a},Attributes,1,03,00,00,00,03,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df74-2911-11d1-b049-0020af30269a},,0,"Sine Wave"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df74-2911-11d1-b049-0020af30269a},Attributes,1,04,00,00,00,03,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df76-2911-11d1-b049-0020af30269a},,0,"Sawtooth Up Wave"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df76-2911-11d1-b049-0020af30269a},Attributes,1,05,00,00,00,03,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df77-2911-11d1-b049-0020af30269a},,0,"Sawtooth Down Wave"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df77-2911-11d1-b049-0020af30269a},Attributes,1,06,00,00,00,03,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df78-2911-11d1-b049-0020af30269a},,0,"Spring"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df78-2911-11d1-b049-0020af30269a},Attributes,1,07,00,00,00,04,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df79-2911-11d1-b049-0020af30269a},,0,"Damper"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df79-2911-11d1-b049-0020af30269a},Attributes,1,08,00,00,00,04,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7c-2911-11d1-b049-0020af30269a},,0,"Texture"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7c-2911-11d1-b049-0020af30269a},Attributes,1,09,00,00,00,07,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7d-2911-11d1-b049-0020af30269a},,0,"Grid"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7d-2911-11d1-b049-0020af30269a},Attributes,1,0A,00,00,00,04,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7f-2911-11d1-b049-0020af30269a},,0,"Enclosure"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7f-2911-11d1-b049-0020af30269a},Attributes,1,0B,00,00,00,05,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df82-2911-11d1-b049-0020af30269a},,0,"Ellipse"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df82-2911-11d1-b049-0020af30269a},Attributes,1,0C,00,00,00,06,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{B3873610-BCB7-11d0-A156-524153480000},,0,"Dynamic"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{B3873610-BCB7-11d0-A156-524153480000},Attributes,1,0D,00,00,00,FF,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df72-2911-11d1-b049-0020af30269a},,0,"Ramp"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df72-2911-11d1-b049-0020af30269a},Attributes,1,65,00,00,00,02,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7b-2911-11d1-b049-0020af30269a},,0,"Friction"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7b-2911-11d1-b049-0020af30269a},Attributes,1,66,00,00,00,04,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7a-2911-11d1-b049-0020af30269a},,0,"Inertia"
+HKLM,%KEY_FEELIT%\%KEY_PRODUCT%\ForceFeedback\Effects\{5959df7a-2911-11d1-b049-0020af30269a},Attributes,1,67,00,00,00,04,3E,00,00,65,01,00,00,65,01,00,00,20,00,00,00
+
+[CPL.AddReg]
+HKCR,CLSID\%LWFFM_CLSID%,,,"Logitech WingMan Force Feedback Mouse Direct Input Game Controller Property Sheet"
+HKCR,CLSID\%LWFFM_CLSID%\InProcHandler32,,,"%11%\gchand.dll"
+HKCR,CLSID\%LWFFM_CLSID%\InProcServer32,,,"%11%\LWCtPl.dll"
+HKCR,CLSID\%LWFFM_CLSID%\InProcServer32,ThreadingModel,,"Apartment"
+
+[DI.AddReg]
+; OEMData=HID, with 3 buttons => 10000000 00000003
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%,OEMData,1,00,00,00,10,03,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%,OEMName,0,%VID_046D&PID_C2A1_H%
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback,Attributes,1,00,00,00,00,e8,03,00,00,e8,03,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback,CLSID,0,%CLSID_IDIRECTINPUTEFFECTDRIVER%
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%,ConfigCLSID,0,%LWFFM_CLSID%
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%,"Flags1",1,04,00,00,00
+
+; Axes
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Axes\0,,0,X Axis
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Axes\0,Attributes,1,01,81,00,00,01,00,30,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Axes\0,FFAttributes,1,0a,00,00,00,00,01,00,00
+
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Axes\1,,0,Y Axis
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Axes\1,Attributes,1,01,81,00,00,01,00,31,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Axes\1,FFAttributes,1,00,00,00,00,00,01,00,00
+
+; Buttons
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Buttons\0,,0,"Button 1"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Buttons\0,Attributes,1,02,80,00,00,09,00,01,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Buttons\1,,0,"Button 2"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Buttons\1,Attributes,1,02,80,00,00,09,00,02,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Buttons\2,,0,"Button 3"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\Buttons\2,Attributes,1,02,80,00,00,09,00,03,00
+
+; Effects
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C20-8E33-11D0-9AD0-00A0C9A06E35},,0,"Constant"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C20-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,01,00,00,00,01,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C22-8E33-11D0-9AD0-00A0C9A06E35},,0,"Square Wave"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C22-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,02,00,00,00,03,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C24-8E33-11D0-9AD0-00A0C9A06E35},,0,"Triangle Wave"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C24-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,03,00,00,00,03,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C23-8E33-11D0-9AD0-00A0C9A06E35},,0,"Sine Wave"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C23-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,04,00,00,00,03,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C25-8E33-11D0-9AD0-00A0C9A06E35},,0,"Sawtooth Up Wave"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C25-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,05,00,00,00,03,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C26-8E33-11D0-9AD0-00A0C9A06E35},,0,"Sawtooth Down Wave"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C26-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,06,00,00,00,03,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C27-8E33-11D0-9AD0-00A0C9A06E35},,0,"Spring"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C27-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,07,00,00,00,04,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C28-8E33-11D0-9AD0-00A0C9A06E35},,0,"Damper"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C28-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,08,00,00,00,04,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{B3873611-BCB7-11d0-A156-524153480000},,0,"Texture"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{B3873611-BCB7-11d0-A156-524153480000},Attributes,1,09,00,00,00,FF,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,0
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{B3873610-BCB7-11d0-A156-524153480000},,0,"Dynamic"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{B3873610-BCB7-11d0-A156-524153480000},Attributes,1,0D,00,00,00,FF,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C21-8E33-11D0-9AD0-00A0C9A06E35},,0,"Ramp Force"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C21-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,65,00,00,00,02,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C2A-8E33-11D0-9AD0-00A0C9A06E35},,0,"Friction"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C2A-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,66,00,00,00,04,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C29-8E33-11D0-9AD0-00A0C9A06E35},,0,"Inertia"
+HKLM,%KEY_JOYSTICK%\%KEY_PRODUCT%\OEMForceFeedback\Effects\{13541C29-8E33-11D0-9AD0-00A0C9A06E35},Attributes,1,67,00,00,00,04,BE,00,00,65,03,00,00,65,01,00,00,20,00,00,00
+
+[LFMR.AddReg.HW]
+HKR,,"LowerFilters",0x00010000,"ihidfilt.sys"
+HKR,,"DebugLevel",0x00010003,2
+
+[Strings]
+DiskDesc="Logitech Gaming Software"
+HIDClassDescription="Human Interface Devices"
+
+Logitech="Logitech, Inc."
+VID_046D&PID_C2A0="Logitech WingMan Force Feedback Mouse (Internal Firmware)"
+VID_046D&PID_C2A0_H="Logitech WingMan Force Feedback Mouse (Vendor Usage)"
+VID_046D&PID_C2A1="Logitech WingMan Force Feedback Mouse (External Firmware)"
+VID_046D&PID_C2A1_H="Logitech WingMan Force Feedback Mouse"
+VID_046D&PID_C2A1_H1="Logitech WingMan Force Feedback Mouse (Absolute Mode)"
+VID_046D&PID_C2A1_H2="Logitech WingMan Force Feedback Mouse (Relative Mode)"
+VID_046D&PID_C2A1_H3="Logitech WingMan Force Feedback Mouse (Joystick Mode)"
+VID_046D&PID_C2A1_H4="Logitech WingMan Force Feedback Mouse (PID)"
+
+CLSID_IFEELIT="{5959DF60-2911-11D1-B049-0020AF30269A}"
+CLSID_IFEELITDEVICE="{5959DF61-2911-11D1-B049-0020AF30269A}"
+CLSID_IFEELITCONFIG="{645AD120-11E6-11d3-A6FA-00A0CC3EBFE9}"
+CLSID_IFEELITEFFECTDRIVER="{E6B894E0-2F84-11D1-A86F-00A024005E52}"
+CLSID_IDIRECTINPUTEFFECTDRIVER="{8AF65080-C6A0-11D2-8C53-00105A178AD1}"
+LWFFM_CLSID="{60150954-C4AE-11d1-B59B-00A0C9971EFC}"
+
+HID_DEVICE_SYSTEM_GAME="HID-compliant game controller"
+
+KEY_JOYSTICK="SYSTEM\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM"
+KEY_FEELIT="System\CurrentControlSet\Control\MediaProperties\PrivateProperties\FEELit"
+KEY_PRODUCT="VID_046D&PID_C2A1"
