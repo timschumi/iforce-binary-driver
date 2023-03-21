@@ -7,6 +7,7 @@ binary released by Saitek.
 
 * AVB Force Feedback Racing Wheel
 * Logitech WingMan Formula Force (`ljoy.inf`)
+* Saitek R440 (`SaiFF04.inf`)
 
 ## Installation
 
