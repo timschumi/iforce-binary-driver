@@ -6,6 +6,7 @@ binary released by Saitek.
 ## Supported devices
 
 * AVB Force Feedback Racing Wheel
+* Creative Avant Force NX (`saiw2enu.inf`)
 * Logitech WingMan Formula Force (`ljoy.inf`)
 * Saitek R440 (`SaiFF04.inf`)
 
