@@ -9,6 +9,7 @@ binary released by Saitek.
 * AVB Top Shot Force Feedback Racing Wheel (`avbw7.inf`)
 * Creative Avant Force NX (`saiw2enu.inf`)
 * Logitech WingMan Formula Force (`ljoy_RFU.inf`)
+* Logitech WingMan Formula GP (`ljoy_FGP.inf`)
 * Saitek R440 (`SaiFF04.inf`)
 
 ## Installation
