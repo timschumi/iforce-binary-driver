@@ -37,3 +37,9 @@ extracted.
 | Euro Truck Simulator       | yes       | center-force only |                             |
 | MudRunner                  | yes       | yes               |                             |
 | FlatOut                    | yes       | yes               |                             |
+
+### Windows 11 (x64)
+|                            | Inputs    | Force Feedback    | Notes                       |
+|----------------------------|-----------|-------------------|-----------------------------|
+| Asseto Corsa               | yes       | yes               |                             |
+| Richard Burns Rally        | yes       | yes               |                             |
