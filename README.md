@@ -37,3 +37,10 @@ extracted.
 | Euro Truck Simulator       | yes       | center-force only |                             |
 | MudRunner                  | yes       | yes               |                             |
 | FlatOut                    | yes       | yes               |                             |
+
+### Windows 11 (x64)
+|                            | Inputs    | Force Feedback    | Notes                                  |
+|----------------------------|-----------|-------------------|----------------------------------------|
+| Assetto Corsa              | yes       | yes               |                                        |
+| Richard Burns Rally        | yes       | yes               |                                        |
+| CarX Drift Racing Online   | yes       | center-force only | Game crashes when force feedback is on |
